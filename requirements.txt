@@ -1,0 +1,17 @@
+# Core (pyshrg itself is built from parser/, see README)
+torch==2.10.0
+numpy==2.4.3
+scipy==1.17.1
+pytest==9.0.2
+
+# Graph-generation comparison (leg 1) and baselines
+networkx==3.6.1
+matplotlib==3.10.8
+
+# Molecules (versions as used on the server; not installed in the Mac env)
+rdkit
+scikit-learn
+# ChemBERTa features only
+transformers
+
+# Grammar extraction (extraction/) needs a separate env with PyDelphin 0.9.2

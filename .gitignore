@@ -1,0 +1,21 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.idea/
+.vscode/
+
+# build
+parser/build/
+pyshrg*.so
+libpyshrg*
+
+# data, caches and outputs live outside the repo
+/grammars/
+/results/
+/data/
+.cache*/
+*.pkl
+*.pt
+*.npy
+*.npz
