@@ -112,14 +112,3 @@ log_z = inside(forests[0], result.rule_log_probs)[1]
 
 Forests are cached under `cache_dir` and reused. Without further arguments EM normalizes over all rules at once. To normalize per
 (LHS label, arity) group, pass `rule_to_label`, a LongTensor with the group id of each rule.
-
-## Things to know
-
-- Rule indices in forests and weight files are in HRG space. The C++ `comprehensive_eval`
-  (BLEU) reads SHRG space. The two disagree on almost every rule; `eval_bleu.sh` maps weights
-  with `scripts/map_weights_to_shrg.py` first. Never pass a raw weight file to `comprehensive_eval`.
-- `comprehensive_eval` is not deterministic (unseeded RNG for the baseline, tie-breaking in
-  EM). On ~100 graphs BLEU moves by about ±0.006 between runs.
-- About 30 tests need a grammar under `grammars/` (e.g. `grammars/childes_cxg/06`) and skip
-  without one. With data present, `test_structural_embeddings.py::TestCreateStructuralEmbedder::test_gnn_type`
-  fails: it expects the GNN embedder class from before batching.
